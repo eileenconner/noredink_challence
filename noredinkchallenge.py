@@ -28,26 +28,43 @@
 # these are each different, i.e. are required to be instances of different classes
 # classes could each be subclasses/inherit from parents or could be separate since different data etc
 
+# we could also do this by building a database of all this info
+# and that actually might be a better idea.
+
+
 ### CLASS DEFINITIONS ###
 
 
 class Quiz(object):
+    """Quiz class. Root of quiz taxonomy."""
 
     def __init__(self, children=None):
+        if children:
+            for child in children:
+                assert isinstance(child, Strand)
         self.root = root
         self.children = children or []
 
 class Strand(object):
+    """Strand class. Categorizes parts of speech."""
 
     def __init__(self, children=None):
+        if children:
+            for child in children:
+                assert isinstance(child, Standard)
         self.children = children or []
 
 class Standard(object):
+    """Standard class. Categorizes types of strand."""
 
     def __init__(self, children=None):
+        if children:
+            for child in children:
+                assert isinstance(child, Question)
         self.children = children or []
 
 class Question(object):
+    """Question class. Categorizes questions within a standard."""
 
     def __init__(self, children=None):
         self.children = children or []
@@ -57,8 +74,18 @@ class Question(object):
 ### PROGRAM FUNCTIONALITY ###
 
 # read file data
-for line in open(questions.csv):
+line_count = 1
+for line in open("questions.csv"):
+    # skip 1st line content
+    # I know there's a way to use this info to create a data model more efficiently
+    # but I don't know how to do it
+    if line_count == 1:
+        line_count = None
+        continue
+    
     # read data, categorize appropriately, and create instance of correct class
+    line = line.strip().split(",")
+
     pass
 
 # determine number of questions
