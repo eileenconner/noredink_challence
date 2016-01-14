@@ -32,6 +32,19 @@
 # and that actually might be a better idea.
 
 
+# using flask framework for app
+# to use flask-sqlalchemy
+from flask import Flask
+
+# Import database & classes from model.py
+from model import connect_to_db, db, Quiz
+
+# make it a Flask app
+app = Flask(__name__)
+
+
+
+
 ### CLASS DEFINITIONS ###
 
 

@@ -1,5 +1,7 @@
 # database models for noredink challenge
 
+
+# importing to use database
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
@@ -18,3 +20,20 @@ class Quiz(db.model):
     standard_name = db.Column(db.String(25))
     question_id = db.Column(db.Integer)
     difficulty = db.Column(db.Float)
+
+
+# Helper functions
+def connect_to_db(app):
+    """Connect database to Flask app."""
+
+    # Configure to use SQLite database
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///law_school_info.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    db.app = app
+    db.init_app(app)
+
+
+if __name__ == "__main__":
+    from noredinkchallenge.py import app
+    connect_to_db(app)
+    print "Connected to DB."
