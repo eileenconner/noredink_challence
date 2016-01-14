@@ -34,7 +34,7 @@
 
 # using flask framework for app
 # to use flask-sqlalchemy
-from flask import Flask
+from flask import Flask, flask_sqlalchemy
 
 # Import database & classes from model.py
 from model import connect_to_db, db, Quiz
