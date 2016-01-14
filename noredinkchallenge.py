@@ -124,6 +124,7 @@ while num_questions < 0:
     question_strand = None
     question_standard = None
 
+
     if question_strand:
         # 
         pass
@@ -132,6 +133,18 @@ while num_questions < 0:
             # 
 
             pass
+
+    # or we could build dictionaries to keep track of frequency of each category
+    # then use those to select Qs
+
+    strand_dict = {}
+
+    # here determine frequency of strands selected to far. choose one (of possible multiples) with min dict.value
+    # then within that strand check the standards
+    # using a different dict for each standard in the strand
+
+    ####TIME OVER
+
 
 
     # add question_id to output list
