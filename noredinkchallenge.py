@@ -19,6 +19,47 @@
 # determine which questions to ask (think about how to do this within reqs)
 # return list of question_ids (index 4 in line of csv)
 
+# basic structure of data:
+# quiz is root of tree, children are strands
+# strands are 2nd tier, children are standards
+# standards are 3rd tier, children are questions
+# questions are 4th tier and are leaves w no children
+# each of the above has specific data associated with them
+# these are each different, i.e. are required to be instances of different classes
+# classes could each be subclasses/inherit from parents or could be separate since different data etc
+
+### CLASS DEFINITIONS ###
+
+
+class Quiz(object):
+
+    def __init__(self, children=None):
+        self.root = root
+        self.children = children or []
+
+class Strand(object):
+
+    def __init__(self, children=None):
+        self.children = children or []
+
+class Standard(object):
+
+    def __init__(self, children=None):
+        self.children = children or []
+
+class Question(object):
+
+    def __init__(self, children=None):
+        self.children = children or []
+
+
+
+### PROGRAM FUNCTIONALITY ###
+
+# read file data
+for line in open(questions.csv):
+    # read data, categorize appropriately, and create instance of correct class
+    pass
 
 # determine number of questions
 num_questions = int(raw_input("how many questions would you like?"))
