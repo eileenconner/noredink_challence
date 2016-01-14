@@ -2,8 +2,12 @@
 
 
 # importing to use database
+
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
+# there's something wrong here. whern I try to seed the database I get
+# ImportError: No module named flask_sqlalchemy
+# need to find the bug to seed.
 
 
 #strand_id,strand_name,standard_id,standard_name,question_id,difficulty
@@ -27,7 +31,7 @@ def connect_to_db(app):
     """Connect database to Flask app."""
 
     # Configure to use SQLite database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///law_school_info.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     db.app = app
     db.init_app(app)

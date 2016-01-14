@@ -16,6 +16,7 @@ seeding data from questions.csv
 from model import connect_to_db, db, Quiz
 from server import app
 
+
 def load_quiz_data():
     """Load quiz question data to db from questions.csv"""
 

@@ -47,47 +47,45 @@ app = Flask(__name__)
 
 ### CLASS DEFINITIONS ###
 # these guys should probably be eliminated if we're going the "build a database" route
+# which we now are
+# leaving them commented out for you to read
 
-class Quiz(object):
-    """Quiz class. Root of quiz taxonomy."""
+# class Quiz(object):
+#     """Quiz class. Root of quiz taxonomy."""
 
-    def __init__(self, children=None):
-        if children:
-            for child in children:
-                assert isinstance(child, Strand)
-        self.root = root
-        self.children = children or []
+#     def __init__(self, children=None):
+#         if children:
+#             for child in children:
+#                 assert isinstance(child, Strand)
+#         self.root = root
+#         self.children = children or []
 
-class Strand(object):
-    """Strand class. Categorizes parts of speech."""
+# class Strand(object):
+#     """Strand class. Categorizes parts of speech."""
 
-    def __init__(self, children=None):
-        if children:
-            for child in children:
-                assert isinstance(child, Standard)
-        self.children = children or []
+#     def __init__(self, children=None):
+#         if children:
+#             for child in children:
+#                 assert isinstance(child, Standard)
+#         self.children = children or []
 
-class Standard(object):
-    """Standard class. Categorizes types of strand."""
+# class Standard(object):
+#     """Standard class. Categorizes types of strand."""
 
-    def __init__(self, children=None):
-        if children:
-            for child in children:
-                assert isinstance(child, Question)
-        self.children = children or []
+#     def __init__(self, children=None):
+#         if children:
+#             for child in children:
+#                 assert isinstance(child, Question)
+#         self.children = children or []
 
-class Question(object):
-    """Question class. Categorizes questions within a standard."""
+# class Question(object):
+#     """Question class. Categorizes questions within a standard."""
 
-    def __init__(self, children=None):
-        self.children = children or []
-
-
-
-### PROGRAM FUNCTIONALITY ###
+#     def __init__(self, children=None):
+#         self.children = children or []
 
 
-### line 90-105 is moving into seed.py to seed the database
+### line 88-103 is moving into seed.py to seed the database
 # # read file data
 # line_count = 1
 # for line in open("questions.csv"):
@@ -104,6 +102,9 @@ class Question(object):
 
 #     pass
 
+
+### PROGRAM FUNCTIONALITY ###
+
 # determine number of questions
 num_questions = int(raw_input("how many questions would you like?"))
 
@@ -111,10 +112,26 @@ num_questions = int(raw_input("how many questions would you like?"))
 quiz_qs = []
 
 # ask questions for required number of times
+
 while num_questions < 0:
-    # determine which question to ask
+    # determine which question to add to quiz_qs
+
     # pseudocode: do this with an if/elif/else
-    # 
+    # we're going to query the database
+    # while also keeping track of content of prev questions
+    # we need to store the type of question/which category it belongs to
+    # to do that, use variables
+    question_strand = None
+    question_standard = None
+
+    if question_strand:
+        # 
+        pass
+
+        if question_standard:
+            # 
+
+            pass
 
 
     # add question_id to output list
