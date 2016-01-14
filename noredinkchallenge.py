@@ -97,6 +97,10 @@ quiz_qs = []
 # ask questions for required number of times
 while num_questions < 0:
     # determine which question to ask
+    # pseudocode: do this with an if/elif/else
+    # 
+
+
     # add question_id to output list
     quiz_qs.append(question_id)
     # decrement question variable
