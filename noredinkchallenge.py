@@ -46,7 +46,7 @@ app = Flask(__name__)
 
 
 ### CLASS DEFINITIONS ###
-
+# these guys should probably be eliminated if we're going the "build a database" route
 
 class Quiz(object):
     """Quiz class. Root of quiz taxonomy."""
@@ -86,20 +86,23 @@ class Question(object):
 
 ### PROGRAM FUNCTIONALITY ###
 
-# read file data
-line_count = 1
-for line in open("questions.csv"):
-    # skip 1st line content
-    # I know there's a way to use this info to create a data model more efficiently
-    # but I don't know how to do it
-    if line_count == 1:
-        line_count = None
-        continue
-    
-    # read data, categorize appropriately, and create instance of correct class
-    line = line.strip().split(",")
 
-    pass
+### line 90-105 is moving into seed.py to seed the database
+# # read file data
+# line_count = 1
+# for line in open("questions.csv"):
+#     # skip 1st line content
+#     # I know there's a way to use this info to create a data model more efficiently
+#     # but I don't know how to do it
+#     # googling suggests I use the csv module so I may try that if i have time
+#     if line_count == 1:
+#         line_count = None
+#         continue
+    
+#     # read data, categorize appropriately, and create instance of correct class
+#     line = line.strip().split(",")
+
+#     pass
 
 # determine number of questions
 num_questions = int(raw_input("how many questions would you like?"))
